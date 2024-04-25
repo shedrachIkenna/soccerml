@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: #24252A;
+}
+
+body, a, li,  button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #edf0f1;
+    text-decoration: none;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0px;
+}
+
+.logo {
+    cursor: pointer;
+    width: 200px;
+    height: auto;
+}
+
+.nav__links {
+    list-style: none;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #07a989;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: #07a989;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: #067861;
+}
+
+h1{
+    text-align: center;
+    color: #333;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 25px 0;
+    font-size: 0.9em;
+    min-width: 400px;
+    border: none;
+}
+
+table th {
+    background-color: #009879;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: none;
+}
+
+table tbody tr {
+    border-bottom: 1px solid #b9b9b9;
+}
+
+table tbody tr:last-of-type {
+    border-bottom: 2px solid #07a989;
+}
+
+table td:nth-child(4),
+table td:nth-child(5) {
+    text-align: center;
+}
+
+
+.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+h1 {
+    color: #edf0f1;
+    padding: 20px 0 30px 0;
+    font-size: 2em;
+}
