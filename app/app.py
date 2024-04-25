@@ -4,7 +4,6 @@ import pandas as pd
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime, timedelta
-import psycopg2
 import numpy as np
 from db_connect import db_connect
 
