@@ -6,6 +6,7 @@ import requests
 from datetime import datetime, timedelta
 import psycopg2
 import numpy as np
+from db_connect import db_connect
 
 class MissingDict(dict):
     __missing__ = lambda self, key: key
@@ -81,27 +82,7 @@ def predict():
     return render_template('predictions.html', predictions_table=predictions_html)
 
 def get_matches():
-    # Define your database connection parameters
-    db_params = {
-        "host": "localhost",
-        "database": "football_stats_db",
-        "user": "sheddy",
-        "password": "IKENNASHAYDEE",
-    }
-
-    # Establish a connection to the PostgreSQL database
-    conn = psycopg2.connect(**db_params)
-
-    # Define your SQL query to fetch the required columns from the soccer_data table
-    query = """
-    SELECT date,venue,team, sh, sot, gf, ga, dist, xg, xga, fk, pk, pkatt, sca, gca, result, opponent
-    FROM "PremierLeague";
-    """
-
-    # Fetch the data from the database into a DataFrame
-    matches = pd.read_sql(query, conn)
-    # Close the database connection
-    conn.close()
+    matches = db_connect()
 
     matches['date'] = pd.to_datetime(matches['date'], format='%Y-%m-%d')
     matches['year'] = matches['date'].dt.year
