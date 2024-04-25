@@ -1,2 +1,2 @@
 .env 
-db_connect.py
+config.py
