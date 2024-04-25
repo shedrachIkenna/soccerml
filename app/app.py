@@ -192,7 +192,6 @@ def get_matches():
     return data
 
 
-
 def calculate_rolling_averages_all_teams(data, rolling_window=7):
     # List of columns for which you want to calculate rolling averages
     columns_to_average_home = ['gf_home', 'sh_home', 'sot_home', 'dist_home', 'xg_home', 'xga_home', 'sca_home', 
@@ -286,9 +285,6 @@ def process_data():
     'away_scored_two_goals_or_more_rolling_avg',
     'away_conceded_two_goals_or_more_rolling_avg',]]
     
-    # Use transform instead of fit_transform
-    #data_transformed = preprocessor.transform(data)
-    #return data_transformed
     return data
 
 
