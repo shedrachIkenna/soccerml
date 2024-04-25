@@ -7,7 +7,6 @@ from datetime import datetime, timedelta
 import psycopg2
 import numpy as np
 
-
 class MissingDict(dict):
     __missing__ = lambda self, key: key
 
