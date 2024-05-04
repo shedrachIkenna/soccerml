@@ -8,6 +8,7 @@ from bs4 import BeautifulSoup
 import requests
 from datetime import datetime, timedelta
 import numpy as np
+import streamlit as st
 
 class MissingDict(dict):
     __missing__ = lambda self, key: key
@@ -88,10 +89,10 @@ def predict():
 def db_connect():
         # Define your database connection parameters
     db_params = {
-        "host": Config.DB_HOST,
-        "database": Config.DB_NAME,
-        "user": Config.DB_USER,
-        "password": Config.DB_PASSWORD,
+        "host": st.secrets("DB_USER"),
+        "database": st.secrets("DB_NAME"),
+        "user": st.secrets("DB_USER"),
+        "password": st.secrets("DB_PASSWORD"),
     }
 
     # Establish a connection to the PostgreSQL database
