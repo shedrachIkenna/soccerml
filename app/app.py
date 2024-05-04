@@ -1,11 +1,12 @@
 from flask import Flask, render_template
 import joblib
-import pandas as pd
+import psycopg2
+import pandas as pd 
+from config import Config
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime, timedelta
 import numpy as np
-import db_connect
 
 class MissingDict(dict):
     __missing__ = lambda self, key: key
@@ -79,6 +80,37 @@ def predict():
     # Pass the predictions as HTML table to the template
     # Alternatively, pass the DataFrame as a dictionary if you wish to format it in the template
     return render_template('predictions.html', predictions_table=predictions_html)
+
+
+
+
+def db_connect():
+        # Define your database connection parameters
+    db_params = {
+        "host": Config.DB_HOST,
+        "database": Config.DB_NAME,
+        "user": Config.DB_USER,
+        "password": Config.DB_PASSWORD,
+    }
+
+    # Establish a connection to the PostgreSQL database
+    conn = psycopg2.connect(**db_params)
+
+    # Define your SQL query to fetch the required columns from the soccer_data table
+    query = """
+    SELECT date,venue,team, sh, sot, gf, ga, dist, xg, xga, fk, pk, pkatt, sca, gca, result, opponent
+    FROM "PremierLeague";
+    """
+
+    # Fetch the data from the database into a DataFrame
+    matches = pd.read_sql(query, conn)
+    # Close the database connection
+    conn.close()
+
+    return matches 
+
+
+
 
 def get_matches():
     matches = db_connect()
