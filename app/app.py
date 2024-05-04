@@ -41,8 +41,8 @@ map_values = {
 
 
 app = Flask(__name__)
-model = joblib.load(r'C:\Users\DELL\Desktop\MLapp\app\model.pkl')
-preprocessor = joblib.load(r'C:\Users\DELL\Desktop\MLapp\app\preprocessor.pkl')
+model = joblib.load('model.pkl')
+preprocessor = joblib.load('preprocessor.pkl')
 
 @app.route('/')
 def index():
