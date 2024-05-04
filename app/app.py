@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-import joblib
+from joblib import load
 import pickle 
 import psycopg2
 import pandas as pd 
@@ -42,8 +42,11 @@ map_values = {
 
 
 app = Flask(__name__)
-model = pickle.load(open("model.pkl", "rb"))
-preprocessor = pickle.load(open("preprocessor.pkl", "rb"))
+#model = pickle.load(open("model.pkl", "rb"))
+#preprocessor = pickle.load(open("preprocessor.pkl", "rb"))
+
+model = load('model.pkl')
+preprocessor = load('preprocessor.pkl')
 
 @app.route('/')
 def index():

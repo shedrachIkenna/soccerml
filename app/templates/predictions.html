@@ -20,8 +20,14 @@
         </header>
         <div class="main">
             <h1>Premier League Predictions</h1>
+            <button onclick="predict()">View Predictions</button>
             {{ predictions_table|safe }}
         </div>
     </div>
+    <script>
+        function predict() {
+            window.location.href="/predict"
+        }
+    </script>
 </body>
 </html>
