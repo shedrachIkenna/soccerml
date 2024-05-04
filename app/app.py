@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import requests
 from datetime import datetime, timedelta
 import numpy as np
-from db_connect import db_connect
+import db_connect
 
 class MissingDict(dict):
     __missing__ = lambda self, key: key
